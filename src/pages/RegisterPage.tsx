@@ -16,6 +16,9 @@ import { Link, useNavigate } from "react-router-dom";
 import React from "react";
 
 const RegisterPage = () => {
+
+  const setToken = useTokenStore((state) => state.setToken);
+
   const navigate = useNavigate();
 
   const nameRef = useRef<HTMLInputElement>(null);
@@ -24,8 +27,9 @@ const RegisterPage = () => {
 
   const mutation = useMutation({
     mutationFn: register,
-    onSuccess: () => {
+    onSuccess: (response) => {
       console.log("Login successful");
+      setToken(response.data.accessToken);
       navigate("/dashboard/home");
     },
   });
