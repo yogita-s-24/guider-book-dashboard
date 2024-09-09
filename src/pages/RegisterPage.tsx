@@ -14,6 +14,7 @@ import { LoaderCircle } from "lucide-react";
 import { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import React from "react";
+import useTokenStore from "@/store";
 
 const RegisterPage = () => {
 
